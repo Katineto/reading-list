@@ -1,0 +1,207 @@
+@font-face{
+    font-family: 'SlimJoe';
+    src: url('./assets/Slim\ Joe.otf');
+}
+@font-face{
+    font-family: 'Aileron';
+    src: url('./assets/Aileron-Light.ttf')
+}
+body{
+    background:#2e2e32;
+}
+.main-container{
+    margin: 100px 2em;
+    display: grid;
+    grid-template-columns: minmax(280px, 1fr);
+    grid-gap: 1em;
+}
+.hide{
+    display: none !important;
+}
+.login-container{
+    margin: 50px auto;
+    width: 300px;
+}
+#book-logo{
+    width: 10em;
+    margin: 0 auto;
+}
+#notLogged>h1{
+    font-family: 'SlimJoe', sans-serif;
+    text-align: center;
+    color: #fff;
+    margin-bottom: 2.5em;
+}
+#notLogged{
+    display: flex;
+    flex-direction: column;
+    
+}
+button{
+    background: transparent;
+    border: 1px solid;
+    padding: 0.4em;
+    border-radius: 1em;
+    margin: 0.5em 50px;
+    color: #fff;
+}
+button:active{
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+}
+button:hover{
+    cursor: pointer;
+}
+button#btnLogin{
+    margin-top: 1.5em;
+    background: #00a0b2;
+    border: 1px solid #00a0b2;
+}
+button#btnLogin:hover{
+    background: #005767;
+    border: 1px solid #005767;
+}
+button#btnSignUp{
+    background: #FB9D5B;
+    border: 1px solid #FB9D5B;
+}
+button#btnSignUp:hover{
+    background: rgb(198, 107, 42);
+    border: 1px solid rgb(198, 107, 42);
+}
+
+button[id="btnLogout"]{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background-color: #6d0000;
+    border: 1px solid #6d0000;
+    width: 150px;
+}
+button#btnLogout:hover{
+    background-color: #8d2323;
+    border: 1px solid #6d0000;
+}
+input[type='email'],input[type='password'],input[type='text']{
+    background: transparent;
+    border: none;
+    border-bottom: 0.5px solid #fff;
+    color: #fff;
+    padding: 1em;
+    text-align: center;
+}
+.add-book-container{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    width: 320px;
+    padding: 1em;
+    color: #fff;
+    font-family: 'Aileron', sans-serif;
+}
+.add-book-container>label{
+    margin-top: 1em;
+    font-size: 0.8rem;
+    text-align: center;
+}
+.add-book-container>input[type="checkbox"]{
+    margin: 0.5em auto;
+    
+}
+#btnCancel{
+    background-color: #6d0000;
+    border: 1px solid #6d0000;
+}
+#btnCancel:hover{
+    background-color: #8d2323;
+    border: 1px solid #8d2323;
+}
+#btnAddBook{
+    background-color: #FB9D5B;
+    border: 1px solid #FB9D5B;
+}
+#btnAddBook:hover{
+    background: rgb(198, 107, 42);
+    border: 1px solid rgb(198, 107, 42);
+}
+#btnPlus{
+    font-family: 'Aileron', sans-serif;
+    font-size: 6em;
+    color: #FB9D5B;
+    margin: 0 auto;
+}
+#btnPlus:hover{
+    transform: scale(1.1);
+    transition: all 0.5s ease-in-out;
+    cursor: pointer;
+}
+#library-container{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 2em;
+}
+.new-book-container{
+    border: 2px solid #fff;
+    padding: 1em 2em 1em 2em;
+    font-family: 'Aileron', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    position: relative;
+}
+.new-book-container:hover{
+    cursor: pointer;
+    transform: scale(1.05);
+    transition: all 0.3s ease-in-out;
+}
+.new-book-container>h2{
+    font-family: 'SlimJoe', sans-serif;
+    color: #fff;
+}
+.new-book-container>p.readStatus{
+    text-align: center;
+}
+.new-book-container>p{
+    color: #fff;
+}
+.new-book-container>p.readStatus{
+    text-align: center;
+    font-family: 'SlimJoe', sans-serif;
+    font-size: 1.2em;
+    border: 1px solid #005767;
+    border-radius: 1em;
+    background: #005767;
+    width: 50%;
+    padding: 0.5em;
+    padding-top: 0.6em;
+    margin: 0 auto;
+}
+.new-book-container>p[class="readStatus not-read"]{
+    border: 1px solid #00a0b2;
+    background-color: #00a0b2;
+    
+}
+button.btn-delete-book{
+    position: absolute;
+    top: 1em;
+    right: 1em;
+    background: transparent;
+    border: none;
+    margin: 0 0 0 0;
+    color: #8d2323;
+    font-weight: 900;
+    font-size: 1.2em;
+    float: right;
+}
+.btn-delete-book:hover{
+    cursor: pointer;
+    color: #6d0000;
+}
+
+@media screen and (min-width: 1000px) {
+    #library-container{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

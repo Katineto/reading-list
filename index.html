@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reading list</title>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.0.0/firebase-database.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet"> 
+</head>
+<body>
+    <div class="login-container">
+        <div id="notLogged">
+            <img src="assets/book.svg" id="book-logo">
+            <h1>Reading List</h1>
+            <input id="txtEmail" type="email" placeholder="Email">
+            <input id="txtPassword" type="password" placeholder="Password">
+            <button id="btnLogin">Log in</button>
+            <button id="btnSignUp">Sign Up</button>
+        </div>
+        <button id="btnLogout">Log Out</button>
+    </div>
+    <div class="main-container">
+        <div class="add-book-container hide">
+            <input id="inputTitle" type="text" placeholder="Title">
+            <input id="inputAuthor" type="text" placeholder="Author">
+            <input id="inputPages" type="text" placeholder="Pages">
+            <label for="checkRead">Have you finished reading this book?</label>
+            <input id="checkRead" type="checkbox">
+            <button id="btnCancel">Cancel</button>
+            <button id="btnAddBook">Add book</button>
+        </div>
+        <div id="btnPlus">+</div>
+        <div id="library-container">
+        </div>
+    </div>
+    
+</body>
+<script src="app.js"></script>
+</html>
