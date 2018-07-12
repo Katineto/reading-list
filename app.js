@@ -60,7 +60,7 @@ firebase.auth().onAuthStateChanged(firebaseUser => {
         while(libraryContainer.firstChild) {
             libraryContainer.removeChild(libraryContainer.firstChild)
         }
-
+        
         //Write the user to db
         let usersRef = firebase.database().ref('users')
         let userRef = usersRef.child(firebaseUser.uid)
@@ -87,16 +87,18 @@ btnAddBook.addEventListener('click', e => {
     const read = checkRead.checked
     const userId = firebase.auth().currentUser.uid
     const dbUserLibrary = firebase.database().ref('books/').child(userId)
-    dbUserLibrary.push({
-        author: author,
-        title: title,
-        pages: pages,
-        read: read
-    })
-    txtAuthor.value = ''
-    txtTitle.value = ''
-    txtPages.value = ''
-    checkRead.checked = false
+    if(title.length != 0 && author.length != 0) {
+        dbUserLibrary.push({
+            author: author,
+            title: title,
+            pages: pages,
+            read: read
+        })
+        txtAuthor.value = ''
+        txtTitle.value = ''
+        txtPages.value = ''
+        checkRead.checked = false
+    } else console.log('title or author too short')
 })
 
 // Display books from database
@@ -113,7 +115,7 @@ function startDatabaseQueries() {
             const bookDeletebtn = document.createElement('button')
             bookDeletebtn.classList.add('btn-delete-book')
             bookDeletebtn.innerText = 'X'
-
+            
             const bookTitle = document.createElement('h2')
             bookTitle.innerText = `${data.val().title}`
             
@@ -127,7 +129,7 @@ function startDatabaseQueries() {
             readStatus.classList.add('readStatus')
             readStatus.innerText = `${data.val().read ? 'read': 'not read'}`
             readStatus.classList.add(`${data.val().read ? 'read': 'not-read'}`)
-
+            
             newBook.appendChild(bookDeletebtn)
             newBook.appendChild(bookTitle)
             newBook.appendChild(bookAuthor)
@@ -155,7 +157,7 @@ function startDatabaseQueries() {
                 e.stopPropagation()
                 userLibrary.child(newBook.id).remove()
             })
-
+            
         })
         libraryRef.on('child_changed', data => {
             const changinElement = document.getElementById('change')
